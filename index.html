@@ -2,15 +2,16 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>X RPL - TECHNOFORCE | Neubrutalism Class Web</title>
+    <!-- FORCED DESKTOP VIEW: fixed viewport, no responsive scaling -->
+    <meta name="viewport" content="width=1280, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>X RPL - TECHNOFORCE | Neubrutalism Class Web [DESKTOP MODE]</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Lexend+Mega:wght@500;700;900&display=swap" rel="stylesheet">
-    <!-- Lucide Icons for Neubrutal style vectors -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <script>
@@ -36,12 +37,15 @@
     </script>
     
     <style>
+        /* FORCED DESKTOP LAYOUT: fixed min-width, no mobile breakpoints */
         body {
             background-color: #FFFDF6;
             background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
             background-size: 24px 24px;
             color: #1A1A1A;
-            overflow-x: hidden;
+            min-width: 1280px;
+            width: 100%;
+            overflow-x: auto;
         }
         
         /* Custom Neubrutalist Border Utilities */
@@ -82,155 +86,225 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-
-        /* Fix for mobile: prevent horizontal overflow and force full-width scaling */
-        img, svg, video {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Ensure containers don't cause overflow */
+        
+        /* Force desktop container max-width full */
         .max-w-7xl {
-            max-width: 100%;
+            max-width: 1280px !important;
             margin-left: auto;
             margin-right: auto;
         }
-        @media (min-width: 1280px) {
-            .max-w-7xl {
-                max-width: 80rem;
-            }
+        
+        /* semua elemen tetap pada ukuran desktop, tidak mengecil */
+        .container, .mx-auto {
+            width: 100%;
         }
-        /* Scale down hero text for mobile but keep layout */
-        @media (max-width: 640px) {
-            h1.font-mega {
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-            .neo-shadow-black, .neo-shadow-black-lg {
-                box-shadow: 4px 4px 0px 0px #000000;
-            }
+        
+        /* pastikan gambar tidak meluber */
+        img, svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Fix untuk wrapper agar desktop fixed */
+        html {
+            overflow-x: auto;
+        }
+        body {
+            overflow-x: auto;
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-neoPink selection:text-white">
+<body class="font-sans antialiased selection:bg-neoPink selection:text-white" style="min-width:1280px">
 
-    <!-- TOP NAVIGATION BAR - tetap responsif -->
-    <header class="sticky top-0 z-50 w-full bg-neoCream border-b-4 border-black px-3 md:px-8 py-3">
-        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+    <!-- TOP NAVIGATION BAR - DESKTOP fixed style -->
+    <header class="sticky top-0 z-50 w-full bg-neoCream border-b-4 border-black px-8 py-4" style="min-width:1280px">
+        <div class="max-w-7xl mx-auto flex flex-row justify-between items-center gap-4">
             <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-2 bg-neoYellow neo-border-md px-3 py-1.5 neo-shadow-black-sm hover:rotate-2 transition-transform text-sm md:text-base">
-                <span class="font-mega font-black text-base md:text-xl tracking-tight">X RPL 🚀</span>
+            <a href="#" class="flex items-center gap-2 bg-neoYellow neo-border-md px-4 py-2 neo-shadow-black-sm hover:rotate-2 transition-transform">
+                <span class="font-mega font-black text-xl tracking-tight">X RPL 🚀</span>
             </a>
             
-            <!-- Navbar links - wrap secara horizontal dengan scroll jika perlu -->
-            <nav class="flex flex-nowrap overflow-x-auto no-scrollbar gap-1.5 md:gap-3 font-bold pb-1">
-                <a href="#about" class="whitespace-nowrap px-2 md:px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoPink hover:text-white transition-all rounded-md text-xs md:text-sm">Tentang</a>
-                <a href="#teacher" class="whitespace-nowrap px-2 md:px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoBlue hover:text-black transition-all rounded-md text-xs md:text-sm">Wali Kelas</a>
-                <a href="#students" class="whitespace-nowrap px-2 md:px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoOrange hover:text-white transition-all rounded-md text-xs md:text-sm">Siswa</a>
-                <a href="#schedules" class="whitespace-nowrap px-2 md:px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoYellow hover:text-black transition-all rounded-md text-xs md:text-sm">Jadwal</a>
-                <a href="#album" class="whitespace-nowrap px-2 md:px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoGreen hover:text-white transition-all rounded-md text-xs md:text-sm">Album</a>
-                <a href="#terminal" class="whitespace-nowrap px-2 md:px-3 py-1 border-2 border-transparent hover:border-black hover:bg-black hover:text-white transition-all rounded-md text-xs md:text-sm">Console</a>
-                <a href="#mading" class="whitespace-nowrap px-2 md:px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoPurple hover:text-white transition-all rounded-md text-xs md:text-sm">Mading</a>
+            <!-- Navbar links - full desktop layout no wrap -->
+            <nav class="flex flex-row items-center justify-center gap-4 font-bold">
+                <a href="#about" class="px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoPink hover:text-white transition-all rounded-md text-base">Tentang</a>
+                <a href="#teacher" class="px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoBlue hover:text-black transition-all rounded-md text-base">Wali Kelas</a>
+                <a href="#students" class="px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoOrange hover:text-white transition-all rounded-md text-base">Siswa</a>
+                <a href="#schedules" class="px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoYellow hover:text-black transition-all rounded-md text-base">Jadwal</a>
+                <a href="#album" class="px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoGreen hover:text-white transition-all rounded-md text-base">Album</a>
+                <a href="#terminal" class="px-3 py-1 border-2 border-transparent hover:border-black hover:bg-black hover:text-white transition-all rounded-md text-base">Console</a>
+                <a href="#mading" class="px-3 py-1 border-2 border-transparent hover:border-black hover:bg-neoPurple hover:text-white transition-all rounded-md text-base">Mading</a>
             </nav>
 
-            <!-- CTA Badge - hidden on mobile -->
-            <div class="hidden lg:flex items-center gap-2 bg-neoGreen text-white neo-border-md px-3 py-1.5 font-bold shadow-[3px_3px_0px_0px_#000]">
+            <!-- CTA Badge -->
+            <div class="flex items-center gap-2 bg-neoGreen text-white neo-border-md px-3 py-1.5 font-bold shadow-[3px_3px_0px_0px_#000]">
                 <span>SMK HEBAT!</span>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION (Responsif) -->
-    <section class="relative max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-20 flex flex-col items-center text-center">
-        <!-- Stiker floating disembunyikan di mobile agar tidak semrawut -->
-        <div class="absolute top-8 left-10 hidden xl:block bg-neoOrange text-white neo-border-md px-4 py-2 -rotate-6 neo-shadow-black font-mega font-bold">⚡ CODE DAILY</div>
-        <div class="absolute bottom-16 right-10 hidden xl:block bg-neoBlue text-black neo-border-md px-4 py-2 rotate-12 neo-shadow-black font-mega font-bold">💻 ERROR 404</div>
+    <!-- HERO SECTION (desktop full size) -->
+    <section class="relative max-w-7xl mx-auto px-8 py-20 flex flex-col items-center text-center">
+        <!-- Floating Sticker 1 -->
+        <div class="absolute top-8 left-10 block bg-neoOrange text-white neo-border-md px-4 py-2 -rotate-6 neo-shadow-black font-mega font-bold">
+            ⚡ CODE DAILY
+        </div>
+        <!-- Floating Sticker 2 -->
+        <div class="absolute bottom-16 right-10 block bg-neoBlue text-black neo-border-md px-4 py-2 rotate-12 neo-shadow-black font-mega font-bold">
+            💻 ERROR 404
+        </div>
 
-        <div class="inline-block bg-[#00F0FF] text-black font-bold neo-border-md px-4 py-1.5 mb-5 neo-shadow-black transform -rotate-2 text-sm md:text-base">KELAS 10 REKAYASA PERANGKAT LUNAK</div>
+        <!-- Tagline Badge -->
+        <div class="inline-block bg-[#00F0FF] text-black font-bold neo-border-md px-6 py-2 mb-6 neo-shadow-black transform -rotate-2">
+            KELAS 10 REKAYASA PERANGKAT LUNAK
+        </div>
 
-        <h1 class="font-mega font-black text-4xl sm:text-5xl md:text-8xl tracking-tight leading-none mb-6">
-            CREATIVE <span class="bg-neoYellow px-2 md:px-4 inline-block transform rotate-1 neo-border-lg">CODER</span><br class="hidden sm:inline"> FORCE!
+        <!-- Main Heading -->
+        <h1 class="font-mega font-black text-8xl tracking-tight leading-none mb-8">
+            CREATIVE <span class="bg-neoYellow px-4 inline-block transform rotate-1 neo-border-lg">CODER</span><br> FORCE!
         </h1>
 
-        <p class="max-w-2xl text-sm sm:text-lg md:text-xl font-medium border-4 border-black p-4 md:p-6 bg-white neo-shadow-black rounded-lg mb-8 leading-relaxed text-left md:text-center">
+        <!-- Short Pitch -->
+        <p class="max-w-2xl text-xl font-medium border-4 border-black p-6 bg-white neo-shadow-black rounded-lg mb-10 leading-relaxed text-center">
             Selamat datang di portal resmi <strong class="underline decoration-neoPink decoration-4">X RPL</strong>. Komunitas developer muda, desainer antarmuka masa depan, dan peretas bug handal yang berisikan 35 talenta berbakat di bawah bimbingan 1 Wali Kelas hebat.
         </p>
 
-        <div class="flex flex-wrap gap-3 justify-center">
-            <a href="#students" class="bg-neoPink text-white font-mega font-black px-5 py-3 md:px-8 md:py-4 neo-border-lg neo-shadow-black neo-btn-interactive text-sm md:text-md">LIHAT ROSTER SISWA →</a>
-            <a href="#album" class="bg-neoGreen text-white font-mega font-black px-5 py-3 md:px-8 md:py-4 neo-border-lg neo-shadow-black neo-btn-interactive text-sm md:text-md">GALERI ALBUM KELAS 📸</a>
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 justify-center">
+            <a href="#students" class="bg-neoPink text-white font-mega font-black px-8 py-4 neo-border-lg neo-shadow-black neo-btn-interactive text-md">
+                LIHAT ROSTER SISWA &rarr;
+            </a>
+            <a href="#album" class="bg-neoGreen text-white font-mega font-black px-8 py-4 neo-border-lg neo-shadow-black neo-btn-interactive text-md">
+                GALERI ALBUM KELAS 📸
+            </a>
         </div>
     </section>
 
-    <!-- CLASS STATS GRID (tetap grid 2 kolom di mobile) -->
-    <section id="about" class="bg-neoOrange py-10 md:py-12 border-y-4 border-black">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="bg-white neo-border-lg p-5 neo-shadow-black flex flex-col -rotate-1"><div class="font-mega font-black text-4xl md:text-5xl text-neoPink">35</div><div class="font-bold text-base md:text-lg mt-2 uppercase tracking-wide">Siswa Berbakat</div><p class="text-xs text-gray-700 mt-1">Siap mengguncang industri teknologi global.</p></div>
-                <div class="bg-white neo-border-lg p-5 neo-shadow-black flex flex-col rotate-2"><div class="font-mega font-black text-4xl md:text-5xl text-neoPurple">1</div><div class="font-bold text-base md:text-lg mt-2 uppercase tracking-wide">Wali Kelas Hebat</div><p class="text-xs text-gray-700 mt-1">Pembimbing teknis, spiritual, & emosional.</p></div>
-                <div class="bg-white neo-border-lg p-5 neo-shadow-black flex flex-col -rotate-2"><div class="font-mega font-black text-4xl md:text-5xl text-neoYellow">4</div><div class="font-bold text-base md:text-lg mt-2 uppercase tracking-wide">Fokus Utama</div><p class="text-xs text-gray-700 mt-1">Web Dev, Algoritma, UI/UX, & Mobile App.</p></div>
-                <div class="bg-white neo-border-lg p-5 neo-shadow-black flex flex-col rotate-1"><div class="font-mega font-black text-4xl md:text-5xl text-neoBlue">100%</div><div class="font-bold text-base md:text-lg mt-2 uppercase tracking-wide">Bersemangat</div><p class="text-xs text-gray-700 mt-1">Bebas error, penuh kopi/susu hangat.</p></div>
+    <!-- CLASS STATS GRID -->
+    <section id="about" class="bg-neoOrange py-12 border-y-4 border-black">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-4 gap-6">
+                <!-- Stat Card 1 -->
+                <div class="bg-white neo-border-lg p-6 neo-shadow-black flex flex-col justify-between -rotate-1">
+                    <div class="font-mega font-black text-5xl text-neoPink">35</div>
+                    <div class="font-bold text-lg mt-2 uppercase tracking-wide">Siswa Berbakat</div>
+                    <p class="text-sm text-gray-700 mt-1">Siap mengguncang industri teknologi global.</p>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="bg-white neo-border-lg p-6 neo-shadow-black flex flex-col justify-between rotate-2">
+                    <div class="font-mega font-black text-5xl text-neoPurple">1</div>
+                    <div class="font-bold text-lg mt-2 uppercase tracking-wide">Wali Kelas Hebat</div>
+                    <p class="text-sm text-gray-700 mt-1">Pembimbing teknis, spiritual, & emosional.</p>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="bg-white neo-border-lg p-6 neo-shadow-black flex flex-col justify-between -rotate-2">
+                    <div class="font-mega font-black text-5xl text-neoYellow">4</div>
+                    <div class="font-bold text-lg mt-2 uppercase tracking-wide">Fokus Utama</div>
+                    <p class="text-sm text-gray-700 mt-1">Web Dev, Algoritma, UI/UX, & Mobile App.</p>
+                </div>
+                <!-- Stat Card 4 -->
+                <div class="bg-white neo-border-lg p-6 neo-shadow-black flex flex-col justify-between rotate-1">
+                    <div class="font-mega font-black text-5xl text-neoBlue">100%</div>
+                    <div class="font-bold text-lg mt-2 uppercase tracking-wide">Bersemangat</div>
+                    <p class="text-sm text-gray-700 mt-1">Bebas error, bebas bug, penuh kopi/susu hangat.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- WALI KELAS SECTION (Mobile friendly column) -->
-    <section id="teacher" class="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20">
-        <div class="flex flex-col lg:flex-row items-center gap-10">
-            <div class="w-full lg:w-1/2 flex justify-center"><div class="relative max-w-[260px] md:max-w-sm w-full bg-neoYellow neo-border-lg p-3 neo-shadow-black-lg transform -rotate-3 hover:rotate-0 transition-all"><div class="bg-white neo-border-md overflow-hidden h-[320px] md:h-[380px] flex flex-col justify-center items-center relative"><svg class="w-36 md:w-48 h-36 md:h-48 text-black" viewBox="0 0 100 100" fill="none"><rect x="25" y="45" width="50" height="40" rx="8" fill="#FF5C00" stroke="#000" stroke-width="4"/><circle cx="50" cy="35" r="20" fill="#FFE600" stroke="#000" stroke-width="4"/><circle cx="43" cy="33" r="3" fill="#000"/><circle cx="57" cy="33" r="3" fill="#000"/><rect x="36" y="28" width="12" height="8" rx="2" fill="none" stroke="#000" stroke-width="3"/><rect x="52" y="28" width="12" height="8" rx="2" fill="none" stroke="#000" stroke-width="3"/><line x1="48" y1="32" x2="52" y2="32" stroke="#000" stroke-width="3"/><path d="M42 46 C 45 50, 55 50, 58 46" stroke="#000" stroke-width="3" stroke-linecap="round"/><path d="M47 55 L53 55 L55 70 L50 75 L45 70 Z" fill="#FF007A" stroke="#000" stroke-width="3"/></svg><span class="absolute top-2 right-2 bg-neoPink text-white neo-border-md px-2 py-0.5 text-[10px] md:text-xs font-bold transform rotate-12">WALI KELAS</span></div></div></div>
-            <div class="w-full lg:w-1/2 space-y-4"><span class="bg-neoPurple text-white neo-border-md px-3 py-1 font-bold uppercase tracking-widest text-xs inline-block">THE COMMANDER</span><h2 class="font-mega font-black text-2xl md:text-5xl leading-tight">Deka M Wildan, S.Kom.</h2><p class="text-base font-semibold text-gray-800 font-mono">NIP. -</p><hr class="border-2 border-black"><p class="text-base md:text-lg leading-relaxed text-gray-700">"Koding itu mudah kalau dibiasakan. Jangan takut dengan error, karena dari error kita belajar jalan yang benar."</p><div class="bg-white neo-border-md p-3 neo-shadow-black bg-neoCream font-mono flex items-start gap-3"><span class="text-2xl">💡</span><div><strong class="block text-neoPink text-sm">Favorit Code:</strong><code class="text-xs break-all">git commit -m "Beresin bug dalam 5 menit sebelum bel pulang"</code></div></div></div>
+    <!-- WALI KELAS SECTION -->
+    <section id="teacher" class="max-w-7xl mx-auto px-8 py-20">
+        <div class="flex flex-row items-center gap-12">
+            <div class="w-1/2 flex justify-center">
+                <div class="relative max-w-sm w-full bg-neoYellow neo-border-lg p-4 neo-shadow-black-lg transform -rotate-3 hover:rotate-0 transition-all">
+                    <div class="bg-white neo-border-md overflow-hidden h-[380px] flex flex-col justify-center items-center relative">
+                        <svg class="w-48 h-48 text-black" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="25" y="45" width="50" height="40" rx="8" fill="#FF5C00" stroke="#000" stroke-width="4"/>
+                            <circle cx="50" cy="35" r="20" fill="#FFE600" stroke="#000" stroke-width="4"/>
+                            <circle cx="43" cy="33" r="3" fill="#000"/>
+                            <circle cx="57" cy="33" r="3" fill="#000"/>
+                            <rect x="36" y="28" width="12" height="8" rx="2" fill="none" stroke="#000" stroke-width="3"/>
+                            <rect x="52" y="28" width="12" height="8" rx="2" fill="none" stroke="#000" stroke-width="3"/>
+                            <line x1="48" y1="32" x2="52" y2="32" stroke="#000" stroke-width="3"/>
+                            <path d="M42 46 C 45 50, 55 50, 58 46" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M47 55 L53 55 L55 70 L50 75 L45 70 Z" fill="#FF007A" stroke="#000" stroke-width="3"/>
+                        </svg>
+                        <span class="absolute top-4 right-4 bg-neoPink text-white neo-border-md px-3 py-1 text-xs font-bold transform rotate-12">WALI KELAS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 space-y-6">
+                <span class="bg-neoPurple text-white neo-border-md px-4 py-1.5 font-bold uppercase tracking-widest text-sm inline-block">THE COMMANDER</span>
+                <h2 class="font-mega font-black text-5xl leading-tight">Deka M Wildan, S.Kom.</h2>
+                <p class="text-xl font-semibold text-gray-800 font-mono">NIP. -</p>
+                <hr class="border-2 border-black">
+                <p class="text-lg leading-relaxed text-gray-700">"Koding itu mudah kalau dibiasakan. Jangan takut dengan error, karena dari error kita belajar jalan yang benar. Di kelas X RPL ini, kita bukan hanya membangun program, tapi juga membangun karakter kerja sama tim yang tangguh."</p>
+                <div class="bg-white neo-border-md p-4 neo-shadow-black bg-neoCream font-mono flex items-start gap-4">
+                    <span class="text-3xl">💡</span>
+                    <div><strong class="block text-neoPink">Favorit Code:</strong><code>git commit -m "Beresin bug dalam 5 menit sebelum bel pulang"</code></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- STUDENTS LIST SECTION (sistem filter dan search bekerja tanpa gangguan) -->
-    <section id="students" class="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20 border-t-4 border-black">
-        <div class="text-center space-y-4 mb-10"><span class="bg-neoPink text-white neo-border-md px-3 py-1 font-bold uppercase tracking-widest text-xs inline-block">THE LEGENDS</span><h2 class="font-mega font-black text-3xl md:text-6xl">ROSTER 35 SISWA</h2><p class="max-w-xl mx-auto text-sm md:text-lg font-medium text-gray-700">Daftar lengkap 35 koder andalan kelas X RPL lengkap dengan foto profil avatarnya!</p>
-            <div class="flex flex-col md:flex-row gap-3 max-w-2xl mx-auto pt-4"><div class="flex-1"><input type="text" id="search-student" class="w-full bg-white neo-border-md neo-shadow-black-sm p-3 md:p-4 font-bold placeholder-gray-500 text-black focus:outline-none focus:bg-neoYellow transition-all text-sm" placeholder="Cari nama koder kelas..."></div><div class="md:w-64"><select id="filter-role" class="w-full bg-white neo-border-md neo-shadow-black-sm p-3 md:p-4 font-bold text-black focus:outline-none focus:bg-neoBlue transition-all text-sm"><option value="">Semua Keahlian</option><option value="Frontend">Frontend Dev</option><option value="Backend">Backend Dev</option><option value="UI/UX">UI/UX Designer</option><option value="Bug Hunter">Bug Hunter</option><option value="Mobile">Mobile Specialist</option></select></div></div></div>
-        <div id="students-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+    <!-- STUDENTS LIST SECTION -->
+    <section id="students" class="max-w-7xl mx-auto px-8 py-20 border-t-4 border-black">
+        <div class="text-center space-y-4 mb-16">
+            <span class="bg-neoPink text-white neo-border-md px-4 py-1.5 font-bold uppercase tracking-widest text-sm inline-block">THE LEGENDS</span>
+            <h2 class="font-mega font-black text-6xl">ROSTER 35 SISWA</h2>
+            <p class="max-w-xl mx-auto text-lg font-medium text-gray-700">Daftar lengkap 35 koder andalan kelas X RPL lengkap dengan foto profil avatarnya!</p>
+            <div class="flex flex-row gap-4 max-w-2xl mx-auto pt-6">
+                <div class="flex-1"><input type="text" id="search-student" class="w-full bg-white neo-border-md neo-shadow-black-sm p-4 font-bold placeholder-gray-500 text-black focus:outline-none focus:bg-neoYellow transition-all" placeholder="Cari nama koder kelas..."></div>
+                <div class="w-64"><select id="filter-role" class="w-full bg-white neo-border-md neo-shadow-black-sm p-4 font-bold text-black focus:outline-none focus:bg-neoBlue transition-all"><option value="">Semua Keahlian</option><option value="Frontend">Frontend Dev</option><option value="Backend">Backend Dev</option><option value="UI/UX">UI/UX Designer</option><option value="Bug Hunter">Bug Hunter</option><option value="Mobile">Mobile Specialist</option></select></div>
+            </div>
+        </div>
+        <div id="students-grid" class="grid grid-cols-4 gap-8"></div>
     </section>
 
-    <!-- JADWAL PELAJARAN (Schedules) -->
-    <section id="schedules" class="bg-neoYellow py-14 md:py-16 border-y-4 border-black"><div class="max-w-7xl mx-auto px-4"><div class="text-center mb-8"><span class="bg-black text-white neo-border-md px-3 py-1 font-bold uppercase tracking-widest text-xs inline-block mb-3">WAKTU ADALAH KODE</span><h2 class="font-mega font-black text-2xl md:text-5xl text-black">JADWAL & MATA PELAJARAN</h2></div><div class="flex flex-wrap gap-2 justify-center mb-8"><button onclick="switchDay('senin')" class="schedule-tab-btn active bg-black text-white neo-border-md px-4 py-1.5 md:px-6 md:py-2 font-bold text-sm hover:translate-x-1">SENIN</button><button onclick="switchDay('selasa')" class="schedule-tab-btn bg-white text-black neo-border-md px-4 py-1.5 md:px-6 md:py-2 font-bold text-sm">SELASA</button><button onclick="switchDay('rabu')" class="schedule-tab-btn bg-white text-black neo-border-md px-4 py-1.5 md:px-6 md:py-2 font-bold text-sm">RABU</button><button onclick="switchDay('kamis')" class="schedule-tab-btn bg-white text-black neo-border-md px-4 py-1.5 md:px-6 md:py-2 font-bold text-sm">KAMIS</button><button onclick="switchDay('jumat')" class="schedule-tab-btn bg-white text-black neo-border-md px-4 py-1.5 md:px-6 md:py-2 font-bold text-sm">JUMAT</button></div><div id="schedule-content" class="bg-white neo-border-lg p-5 md:p-8 neo-shadow-black max-w-3xl mx-auto"></div></div></section>
+    <!-- JADWAL PELAJARAN -->
+    <section id="schedules" class="bg-neoYellow py-16 border-y-4 border-black">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-12"><span class="bg-black text-white neo-border-md px-4 py-1.5 font-bold uppercase tracking-widest text-sm inline-block mb-4">WAKTU ADALAH KODE</span><h2 class="font-mega font-black text-5xl text-black">JADWAL & MATA PELAJARAN</h2></div>
+            <div class="flex gap-4 justify-center mb-10"><button onclick="switchDay('senin')" class="schedule-tab-btn active bg-black text-white neo-border-md px-6 py-2 font-bold">SENIN</button><button onclick="switchDay('selasa')" class="schedule-tab-btn bg-white text-black neo-border-md px-6 py-2 font-bold">SELASA</button><button onclick="switchDay('rabu')" class="schedule-tab-btn bg-white text-black neo-border-md px-6 py-2 font-bold">RABU</button><button onclick="switchDay('kamis')" class="schedule-tab-btn bg-white text-black neo-border-md px-6 py-2 font-bold">KAMIS</button><button onclick="switchDay('jumat')" class="schedule-tab-btn bg-white text-black neo-border-md px-6 py-2 font-bold">JUMAT</button></div>
+            <div id="schedule-content" class="bg-white neo-border-lg p-8 neo-shadow-black max-w-3xl mx-auto"></div>
+        </div>
+    </section>
 
-    <!-- ALBUM KEGIATAN KELAS (GALLERY) -->
-    <section id="album" class="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20"><div class="text-center space-y-4 mb-10"><span class="bg-neoGreen text-white neo-border-md px-3 py-1 font-bold uppercase tracking-widest text-xs inline-block">DOKUMENTASI</span><h2 class="font-mega font-black text-3xl md:text-6xl">ALBUM KEGIATAN X RPL</h2><div class="flex flex-wrap gap-2 justify-center pt-4"><button onclick="filterAlbum('all')" class="album-filter-btn bg-black text-white neo-border-md px-3 py-1.5 font-bold text-xs hover:translate-y-0.5" id="filter-all">Semua Foto</button><button onclick="filterAlbum('proyek')" class="album-filter-btn bg-white text-black neo-border-md px-3 py-1.5 font-bold text-xs">Proyek Koding</button><button onclick="filterAlbum('belajar')" class="album-filter-btn bg-white text-black neo-border-md px-3 py-1.5 font-bold text-xs">Aktivitas Lab</button><button onclick="filterAlbum('event')" class="album-filter-btn bg-white text-black neo-border-md px-3 py-1.5 font-bold text-xs">Acara Sekolah</button><button onclick="filterAlbum('kebersamaan')" class="album-filter-btn bg-white text-black neo-border-md px-3 py-1.5 font-bold text-xs">Kebersamaan</button></div></div><div id="album-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div></section>
+    <!-- ALBUM KEGIATAN KELAS -->
+    <section id="album" class="max-w-7xl mx-auto px-8 py-20">
+        <div class="text-center space-y-4 mb-16"><span class="bg-neoGreen text-white neo-border-md px-4 py-1.5 font-bold uppercase tracking-widest text-sm inline-block">DOKUMENTASI</span><h2 class="font-mega font-black text-6xl">ALBUM KEGIATAN X RPL</h2><div class="flex gap-2 justify-center pt-4"><button onclick="filterAlbum('all')" class="album-filter-btn bg-black text-white neo-border-md px-4 py-2 font-bold text-sm" id="filter-all">Semua Foto</button><button onclick="filterAlbum('proyek')" class="album-filter-btn bg-white text-black neo-border-md px-4 py-2 font-bold text-sm" id="filter-proyek">Proyek Koding</button><button onclick="filterAlbum('belajar')" class="album-filter-btn bg-white text-black neo-border-md px-4 py-2 font-bold text-sm" id="filter-belajar">Aktivitas Lab</button><button onclick="filterAlbum('event')" class="album-filter-btn bg-white text-black neo-border-md px-4 py-2 font-bold text-sm" id="filter-event">Acara Sekolah</button><button onclick="filterAlbum('kebersamaan')" class="album-filter-btn bg-white text-black neo-border-md px-4 py-2 font-bold text-sm" id="filter-kebersamaan">Kebersamaan</button></div></div>
+        <div id="album-grid" class="grid grid-cols-3 gap-8"></div>
+    </section>
 
-    <!-- ALBUM LIGHTBOX MODAL (tetap) -->
-    <div id="album-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-3"><div class="bg-neoCream max-w-2xl w-full neo-border-lg neo-shadow-black-lg p-5 relative flex flex-col gap-3 transform rotate-1"><button onclick="closeAlbumModal()" class="absolute -top-3 -right-3 bg-neoPink text-white neo-border-md w-8 h-8 flex items-center justify-center font-bold text-lg">X</button><div class="bg-black neo-border-md overflow-hidden aspect-video relative"><img id="modal-img" src="" alt="Album Foto" class="w-full h-full object-cover"></div><div><span id="modal-tag" class="bg-neoOrange text-white neo-border-md px-2 py-0.5 text-xs font-bold uppercase inline-block mb-2">Tag</span><h3 id="modal-title" class="font-mega font-black text-lg md:text-xl text-black">Judul Kegiatan</h3><p id="modal-desc" class="text-gray-700 mt-2 font-medium text-sm">Deskripsi lengkap.</p><p id="modal-date" class="text-xs text-gray-500 font-mono mt-3">Tanggal: -</p></div></div></div>
+    <!-- LIGHTBOX MODAL -->
+    <div id="album-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4"><div class="bg-neoCream max-w-2xl w-full neo-border-lg neo-shadow-black-lg p-6 relative flex flex-col gap-4 transform rotate-1"><button onclick="closeAlbumModal()" class="absolute -top-4 -right-4 bg-neoPink text-white neo-border-md w-10 h-10 flex items-center justify-center font-bold text-xl">X</button><div class="bg-black neo-border-md overflow-hidden aspect-video relative"><img id="modal-img" src="" alt="Foto" class="w-full h-full object-cover"></div><div><span id="modal-tag" class="bg-neoOrange text-white neo-border-md px-3 py-1 text-xs font-bold uppercase inline-block mb-2">Tag</span><h3 id="modal-title" class="font-mega font-black text-xl text-black">Judul</h3><p id="modal-desc" class="text-gray-700 mt-2 font-medium">Deskripsi</p><p id="modal-date" class="text-xs text-gray-500 font-mono mt-4">Tanggal: -</p></div></div></div>
 
-    <!-- INTERACTIVE CLASS TERMINAL -->
-    <section id="terminal" class="bg-black py-12 text-white border-y-4 border-black"><div class="max-w-4xl mx-auto px-4"><div class="bg-[#1e1e1e] neo-border-lg neo-shadow-black rounded-lg overflow-hidden"><div class="bg-neoYellow text-black border-b-4 border-black px-3 py-2 flex justify-between items-center"><div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-neoPink border border-black"></span><span class="w-2.5 h-2.5 rounded-full bg-neoOrange border border-black"></span><span class="w-2.5 h-2.5 rounded-full bg-neoGreen border border-black"></span><span class="ml-2 font-mono font-bold text-xs">rpl_sh_terminal_v1.sh</span></div><span class="font-mono text-[10px] md:text-xs font-bold bg-white neo-border-md px-2 py-0.5">X RPL</span></div><div class="p-4 font-mono text-xs md:text-sm space-y-3 min-h-[320px] max-h-[400px] overflow-y-auto no-scrollbar" id="terminal-screen"><p class="text-gray-400">Welcome to X-RPL CLI. Type <span class="text-neoYellow font-bold">"help"</span> for commands.</p><div class="flex items-center gap-2 text-neoGreen"><span>root@x-rpl:~#</span><span class="text-white">neofetch</span></div><div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[10px] md:text-xs border-b border-gray-700 pb-3"><div class="text-neoBlue"><pre class="leading-none font-bold"> __   __  ______  _____  _      
- \ \ / / |  _  _||_   _|| |     
-  \ V /  | |_/ /   | |  | |     
-  / . \  |  _ <    | |  | |     
- / /^\ \ | |_) |  _| |_ | |____ 
- \/   \/ \____/   \___/ \_____/ </pre></div><div><p><strong class="text-neoYellow">OS:</strong> RPL Linux v10.0</p><p><strong class="text-neoYellow">Host:</strong> SMK NEGERI CODING</p><p><strong class="text-neoYellow">Students:</strong> 35 Active</p></div></div><div id="terminal-history" class="space-y-2"></div><div class="flex items-center gap-2 text-neoGreen pt-2"><span>root@x-rpl:~#</span><input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-white focus:ring-0 flex-1 font-mono text-xs md:text-sm" placeholder="type a command..." autocomplete="off"></div></div></div></div></section>
+    <!-- TERMINAL -->
+    <section id="terminal" class="bg-black py-16 text-white border-y-4 border-black"><div class="max-w-4xl mx-auto px-4"><div class="bg-[#1e1e1e] neo-border-lg neo-shadow-black rounded-lg overflow-hidden"><div class="bg-neoYellow text-black border-b-4 border-black px-4 py-2 flex justify-between items-center"><div class="flex gap-2"><span class="w-3 h-3 rounded-full bg-neoPink border border-black"></span><span class="w-3 h-3 rounded-full bg-neoOrange border border-black"></span><span class="w-3 h-3 rounded-full bg-neoGreen border border-black"></span><span class="ml-2 font-mono font-bold text-sm">rpl_sh_terminal_v1.sh</span></div><span class="font-mono text-xs font-bold bg-white neo-border-md px-2 py-0.5">X RPL</span></div><div class="p-6 font-mono text-sm space-y-4 min-h-[350px] max-h-[450px] overflow-y-auto no-scrollbar" id="terminal-screen"><p class="text-gray-400">Welcome to X-RPL Command Line Tool. Type <span class="text-neoYellow font-bold">"help"</span> for commands.</p><div class="flex gap-2 text-neoGreen"><span>root@x-rpl:~#</span><span class="text-white">neofetch</span></div><div class="grid grid-cols-2 gap-4 text-xs border-b border-gray-700 pb-4"><div class="text-neoBlue"><pre class="leading-none font-bold"> __   __  ______  _____  _      \n \ \ / / |  _  _||_   _|| |     \n  \ V /  | |_/ /   | |  | |     \n  / . \  |  _ <    | |  | |     \n / /^\ \ | |_) |  _| |_ | |____ \n \/   \/ \____/   \___/ \_____/ </pre></div><div><p><strong class="text-neoYellow">OS:</strong> RPL Neubrutalism Linux v10.0</p><p><strong class="text-neoYellow">Host:</strong> SMK NEGERI CODING INDONESIA</p><p><strong class="text-neoYellow">Students:</strong> 35 (Active/Ready)</p></div></div><div id="terminal-history" class="space-y-3"></div><div class="flex gap-2 text-neoGreen pt-2"><span>root@x-rpl:~#</span><input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-white focus:ring-0 flex-1 font-mono text-sm" placeholder="type a command..." autocomplete="off"></div></div></div></div></section>
 
-    <!-- MADING KELAS & ASPIRASI -->
-    <section id="mading" class="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20"><div class="grid grid-cols-1 lg:grid-cols-3 gap-8"><div class="lg:col-span-1 space-y-5"><div class="bg-neoPink neo-border-lg p-5 neo-shadow-black rounded-lg text-white"><h3 class="font-mega font-black text-xl mb-3 text-black bg-white inline-block px-3 py-1 neo-border-md">MADING HARAPAN</h3><p class="font-medium text-sm mb-5">Tinggalkan pesan, harapan, atau motivasi belajar untuk anak-anak X RPL di sini.</p><form id="note-form" class="space-y-4 text-black"><div><label class="block font-bold mb-1 text-white text-sm">Nama Pengirim:</label><input type="text" id="note-author" class="w-full p-2 neo-border-md neo-shadow-sm focus:outline-none text-sm" placeholder="cth: Mas Bagas" required></div><div><label class="block font-bold mb-1 text-white text-sm">Warna Kertas:</label><select id="note-color" class="w-full p-2 neo-border-md focus:outline-none font-bold text-sm"><option value="bg-[#FFE600]">Kuning Neon</option><option value="bg-[#38BDF8]">Biru Langit</option><option value="bg-[#FF007A] text-white">Pink Cetar</option><option value="bg-[#22C55E] text-white">Hijau Segar</option></select></div><div><label class="block font-bold mb-1 text-white text-sm">Pesan/Harapan:</label><textarea id="note-text" rows="3" class="w-full p-2 neo-border-md focus:outline-none text-sm" placeholder="Tuliskan harapanmu untuk koder-koder muda!" required></textarea></div><button type="submit" class="w-full bg-black text-white py-2.5 font-bold neo-border-md neo-shadow-black-sm hover:translate-x-1 active:translate-y-1 transition-all uppercase tracking-wider text-sm">🚀 TEMPEL DI DINDING!</button></form></div></div><div class="lg:col-span-2"><div class="bg-white neo-border-lg p-5 neo-shadow-black h-full min-h-[450px] flex flex-col"><div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b-4 border-black pb-3 mb-5 gap-2"><h3 class="font-mega font-black text-xl md:text-2xl">DINDING MADING KELAS</h3><button onclick="clearNotes()" class="bg-neoOrange text-white text-xs px-3 py-1 font-bold neo-border-md">Hapus Semua</button></div><div id="sticky-notes-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto max-h-[480px] p-1"></div></div></div></div></section>
+    <!-- MADING -->
+    <section id="mading" class="max-w-7xl mx-auto px-8 py-20"><div class="grid grid-cols-3 gap-12"><div class="col-span-1 space-y-6"><div class="bg-neoPink neo-border-lg p-6 neo-shadow-black rounded-lg text-white"><h3 class="font-mega font-black text-2xl mb-4 text-black bg-white inline-block px-3 py-1 neo-border-md">MADING HARAPAN</h3><p class="font-medium mb-6">Tinggalkan pesan, harapan, atau motivasi belajarmu untuk anak-anak X RPL di sini.</p><form id="note-form" class="space-y-4 text-black"><div><label class="block font-bold mb-1 text-white">Nama Pengirim:</label><input type="text" id="note-author" class="w-full p-2 neo-border-md neo-shadow-sm focus:outline-none" placeholder="cth: Mas Bagas" required></div><div><label class="block font-bold mb-1 text-white">Warna Kertas:</label><select id="note-color" class="w-full p-2 neo-border-md focus:outline-none font-bold"><option value="bg-[#FFE600]">Kuning Neon</option><option value="bg-[#38BDF8]">Biru Langit</option><option value="bg-[#FF007A] text-white">Pink Cetar</option><option value="bg-[#22C55E] text-white">Hijau Segar</option></select></div><div><label class="block font-bold mb-1 text-white">Pesan/Harapan:</label><textarea id="note-text" rows="3" class="w-full p-2 neo-border-md focus:outline-none" placeholder="Tuliskan harapanmu untuk koder-koder muda!" required></textarea></div><button type="submit" class="w-full bg-black text-white py-3 font-bold neo-border-md neo-shadow-black-sm hover:translate-x-1 transition-all uppercase tracking-wider">🚀 TEMPEL DI DINDING!</button></form></div></div><div class="col-span-2 space-y-4"><div class="bg-white neo-border-lg p-6 neo-shadow-black h-full min-h-[500px] flex flex-col"><div class="flex justify-between items-center border-b-4 border-black pb-4 mb-6"><h3 class="font-mega font-black text-2xl">DINDING MADING KELAS</h3><button onclick="clearNotes()" class="bg-neoOrange text-white text-xs px-2 py-1 font-bold neo-border-md">Hapus Semua</button></div><div id="sticky-notes-container" class="grid grid-cols-2 gap-4 overflow-y-auto max-h-[480px] p-2"></div></div></div></div></section>
 
-    <!-- FOOTER SECTION -->
-    <footer class="bg-black text-white pt-12 pb-6 border-t-4 border-black"><div class="max-w-7xl mx-auto px-4 md:px-8"><div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-800"><div><span class="font-mega font-black text-xl text-neoYellow bg-zinc-900 border-2 border-neoYellow px-3 py-1 inline-block">X RPL 🦾</span><p class="text-xs text-gray-400 font-mono mt-3">Portal web unik bertema Neubrutalism hasil kreasi hebat.</p></div><div><h4 class="font-bold text-base text-neoPink font-mono">PINTASAN</h4><ul class="space-y-1 text-xs text-gray-400 font-bold mt-2"><li><a href="#about" class="hover:text-neoYellow">Tentang Kelas</a></li><li><a href="#teacher" class="hover:text-neoBlue">Wali Kelas</a></li><li><a href="#students" class="hover:text-neoOrange">Koder X RPL</a></li><li><a href="#schedules" class="hover:text-neoGreen">Mata Pelajaran</a></li><li><a href="#album" class="hover:text-neoYellow">Album Kegiatan</a></li></ul></div><div><h4 class="font-bold text-base text-neoBlue font-mono">QUOTE OF THE CLASS</h4><div class="p-3 bg-zinc-900 border-2 border-white text-[10px] md:text-xs font-mono mt-2">"There are 10 types of people: those who understand binary, and those who don't."</div></div></div><div class="pt-6 text-center flex flex-col sm:flex-row justify-between items-center gap-3 text-[10px] md:text-xs font-mono text-gray-500"><p>© 2026 X RPL - BY TEGAR, SATRIA, RANGGA.</p><div class="flex gap-3"><a href="#" class="hover:text-white">Github</a><a href="#" class="hover:text-white">Discord</a><a href="#" class="hover:text-white">Instagram</a></div></div></div></footer>
+    <footer class="bg-black text-white pt-16 pb-8 border-t-4 border-black"><div class="max-w-7xl mx-auto px-8"><div class="grid grid-cols-3 gap-12 pb-12 border-b border-gray-800"><div><span class="font-mega font-black text-2xl text-neoYellow bg-zinc-900 border-2 border-neoYellow px-4 py-2 inline-block">X RPL 🦾</span><p class="text-sm text-gray-400 font-mono mt-4">Portal web unik bertema Neubrutalism hasil kreasi hebat untuk menggambarkan solidaritas, kreativitas, dan tekad kelas 10 Rekayasa Perangkat Lunak.</p></div><div><h4 class="font-bold text-lg text-neoPink font-mono">PINTASAN</h4><ul class="space-y-2 text-sm text-gray-400 font-bold mt-2"><li><a href="#about" class="hover:text-neoYellow">Tentang Kelas</a></li><li><a href="#teacher" class="hover:text-neoBlue">Wali Kelas</a></li><li><a href="#students" class="hover:text-neoOrange">Koder X RPL</a></li><li><a href="#schedules" class="hover:text-neoGreen">Mata Pelajaran</a></li><li><a href="#album" class="hover:text-neoYellow">Album Kegiatan</a></li></ul></div><div><h4 class="font-bold text-lg text-neoBlue font-mono">QUOTE OF THE CLASS</h4><div class="p-4 bg-zinc-900 border-2 border-white text-xs font-mono mt-2">"There are 10 types of people in this world: those who understand binary, and those who don't. We are definitely the first!"</div></div></div><div class="pt-8 text-center flex justify-between items-center gap-4 text-xs font-mono text-gray-500"><p>&copy; 2026 X RPL - BY TEGAR, SATRIA, RANGGA.</p><div class="flex gap-4"><a href="#" class="hover:text-white">Github</a><a href="#" class="hover:text-white">Discord</a><a href="#" class="hover:text-white">Instagram</a></div></div></div></footer>
 
     <script>
         lucide.createIcons();
         const students = [ { id: 1, name: "Aditya Pratama", nis: "01", gender: "L", role: "Backend Dev", favLang: "Node.js", quote: "Database aman, masa depan tenang." },{ id: 2, name: "Alvino Wahyu W", nis: "02", gender: "L", role: "Frontend Dev", favLang: "React.js", quote: "Lebih baik debug kode 3 jam daripada bergosip." },{ id: 3, name: "Ardi Wiranata K", nis: "03", gender: "L", role: "Bug Hunter", favLang: "Python", quote: "No system is safe, but my code is solid." },{ id: 4, name: "Atha Ghaza A", nis: "04", gender: "L", role: "Mobile Specialist", favLang: "Flutter", quote: "Hot reload adalah jalan pintas menuju kebahagiaan." },{ id: 5, name: "Aulia Duwi Y", nis: "05", gender: "P", role: "UI/UX Designer", favLang: "Figma", quote: "Pixel perfect adalah koentji keindahan desain." },{ id: 6, name: "Dhafid Faiz A", nis: "06", gender: "L", role: "Backend Dev", favLang: "Golang", quote: "Konkurensi tingkat tinggi adalah core-ku." },{ id: 7, name: "Diangga Evan S", nis: "07", gender: "L", role: "Frontend Dev", favLang: "Tailwind CSS", quote: "Garis hitam tebal neubrutalisme is real." },{ id: 8, name: "Excel Ardana A W", nis: "08", gender: "L", role: "Bug Hunter", favLang: "C++", quote: "Memory leak adalah musuh terbesar kita." },{ id: 9, name: "Exi Driya S", nis: "09", gender: "L", role: "Mobile Specialist", favLang: "Kotlin", quote: "Koding santai, build lancar jaya." },{ id: 10, name: "Fanesa Anggun A", nis: "10", gender: "P", role: "UI/UX Designer", favLang: "Figma", quote: "Empati pengguna adalah yang utama." },{ id: 11, name: "Fatma Ameliyani K", nis: "11", gender: "P", role: "Frontend Dev", favLang: "HTML/CSS", quote: "Center-ing a div is my supreme superpower." },{ id: 12, name: "Genta Lentera D", nis: "12", gender: "L", role: "Backend Dev", favLang: "PHP / Laravel", quote: "Laravel memudahkan hidup koder SMK." },{ id: 13, name: "Hafiy Ubadah R", nis: "13", gender: "L", role: "Bug Hunter", favLang: "JavaScript", quote: "Console.log('bismillah beres');" },{ id: 14, name: "Hesti Puji A", nis: "14", gender: "P", role: "Frontend Dev", favLang: "Svelte", quote: "Svelte itu cepet banget parah." },{ id: 15, name: "Jihan Afriliza", nis: "15", gender: "P", role: "UI/UX Designer", favLang: "Figma", quote: "Simpel, fungsional, memikat mata." },{ id: 16, name: "Kevin Adi M", nis: "16", gender: "L", role: "Mobile Specialist", favLang: "Swift", quote: "iOS dev modern, layout serba dinamis." },{ id: 17, name: "Marcello Zacky S R", nis: "17", gender: "L", role: "Bug Hunter", favLang: "Rust", quote: "Rust kencang, aman, tiada tanding." },{ id: 18, name: "M Abdul Muiz", nis: "18", gender: "L", role: "Backend Dev", favLang: "PostgreSQL", quote: "Relasi database serumit relasi asmara." },{ id: 19, name: "M Afnan Abdul Q", nis: "19", gender: "L", role: "Frontend Dev", favLang: "Next.js", quote: "SSR untuk SEO yang mantap luar biasa." },{ id: 20, name: "M Al Zaky", nis: "20", gender: "L", role: "Backend Dev", favLang: "Java", quote: "Write once, run anywhere... hopefully." },{ id: 21, name: "M Alvin Andikha P", nis: "21", gender: "L", role: "UI/UX Designer", favLang: "Sketch", quote: "Seni dalam struktur fungsional digital." },{ id: 22, name: "M Angga Ricky P", nis: "22", gender: "L", role: "Bug Hunter", favLang: "C#", quote: "Bug hanyalah fitur tersembunyi yang tertunda." },{ id: 23, name: "M Satria R", nis: "23", gender: "L", role: "Frontend Dev", favLang: "Nuxt.js", quote: "Framework andalanku, kreasiku tanpa batas." },{ id: 24, name: "M Yardan Bismadani A", nis: "24", gender: "L", role: "Mobile Specialist", favLang: "React Native", quote: "Satu codebase untuk sejuta kegunaan platforms." },{ id: 25, name: "Nafisah Azalia", nis: "25", gender: "P", role: "UI/UX Designer", favLang: "Figma", quote: "Interaksi micro membuat web jauh lebih hidup." },{ id: 26, name: "Natasya Rayi M A", nis: "26", gender: "P", role: "Frontend Dev", favLang: "Astro", quote: "Astro membuat web super kencang tanpa bloat." },{ id: 27, name: "Ornellya Okta", nis: "27", gender: "P", role: "UI/UX Designer", favLang: "Figma", quote: "User journey adalah peta petualangan visual." },{ id: 28, name: "Raka Galeh W", nis: "28", gender: "L", role: "Bug Hunter", favLang: "Python", quote: "Automation is life. Biar script yang bekerja." },{ id: 29, name: "Rangga Arya B", nis: "29", gender: "L", role: "Backend Dev", favLang: "Express.js", quote: "Routing tertata, logika aman sentosa." },{ id: 30, name: "Renata Oktaviani", nis: "30", gender: "P", role: "UI/UX Designer", favLang: "Canva", quote: "Desain harus inklusif dan ramah pengguna." },{ id: 31, name: "Rosa Thea Z", nis: "31", gender: "P", role: "Frontend Dev", favLang: "Vue.js", quote: "Responsif dan dinamis, begitulah kodenya." },{ id: 32, name: "Satria Hakam P", nis: "32", gender: "L", role: "Bug Hunter", favLang: "Go", quote: "Sederhana, cepat, konkuren tinggi." },{ id: 33, name: "Sevi Cahaya S", nis: "33", gender: "P", role: "UI/UX Designer", favLang: "Figma", quote: "Estetika minimalis berpadu kegunaan maksimal." },{ id: 34, name: "Sigit Setya P", nis: "34", gender: "L", role: "Backend Dev", favLang: "MongoDB", quote: "NoSQL untuk fleksibilitas skema tanpa batas." },{ id: 35, name: "Tegar Yudha M", nis: "35", gender: "L", role: "Mobile Specialist", favLang: "Flutter", quote: "Hot reload adalah penyelamat waktu berharga." }];
         students.forEach(s => { s.avatar = s.gender === "L" ? `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(s.name)}&hair=short01,short02,short03&hatProbability=0` : `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(s.name)}&hair=long01,long02,long03&hatProbability=0`; });
-        function renderStudents(filtered){ const grid=document.getElementById('students-grid'); grid.innerHTML=''; if(filtered.length===0){ grid.innerHTML='<div class="col-span-full text-center py-10 bg-white neo-border-lg neo-shadow-black"><p class="font-mega font-bold text-xl text-neoPink">🚨 Ops! Koder tidak ditemukan...</p></div>'; return; } filtered.forEach((s,i)=>{ const bg=["bg-white","bg-neoYellow","bg-neoBlue","bg-neoCream","bg-neoOrange","bg-neoPink"][i%6]; const rotate= i%3===0?'-rotate-1':i%3===1?'rotate-1':'rotate-2'; let tagColor="bg-white"; if(s.role==="Frontend Dev") tagColor="bg-neoBlue"; else if(s.role==="Backend Dev") tagColor="bg-neoYellow"; else if(s.role==="UI/UX Designer") tagColor="bg-neoPink text-white"; else if(s.role==="Bug Hunter") tagColor="bg-neoOrange text-white"; else if(s.role==="Mobile Specialist") tagColor="bg-neoPurple text-white"; grid.innerHTML+=`<div class="${bg} neo-border-lg p-4 neo-shadow-black ${rotate} hover:rotate-0 transition-all flex flex-col h-[410px]"><div><div class="flex justify-between items-start mb-2"><span class="bg-black text-white neo-border-md px-2 py-0.5 text-xs font-mono">${s.nis}</span></div><div class="w-16 h-16 mx-auto bg-white border-4 border-black neo-shadow-black-sm rounded-lg overflow-hidden mb-3"><img src="${s.avatar}" alt="${s.name}" class="w-full h-full object-cover"></div><h3 class="font-mega font-black text-base text-center truncate">${s.name}</h3><div class="text-center"><span class="${tagColor} neo-border-md px-2 py-0.5 text-[11px] font-bold uppercase inline-block my-1">${s.role}</span></div><p class="text-xs text-gray-700 italic text-center mt-2 line-clamp-2">"${s.quote}"</p></div><div class="mt-3 pt-2 border-t-2 border-black flex justify-between text-[11px] font-mono"><span>Fav Lang:</span><span class="bg-black text-neoYellow px-1.5 py-0.5 rounded font-bold">${s.favLang}</span></div></div>`; }); }
-        document.getElementById('search-student')?.addEventListener('input', ()=>{ const q=document.getElementById('search-student').value.toLowerCase(); const r=document.getElementById('filter-role').value; renderStudents(students.filter(s=> s.name.toLowerCase().includes(q) && (r===""||s.role===r))); });
-        document.getElementById('filter-role')?.addEventListener('change', ()=>{ const q=document.getElementById('search-student').value.toLowerCase(); const r=document.getElementById('filter-role').value; renderStudents(students.filter(s=> s.name.toLowerCase().includes(q) && (r===""||s.role===r))); });
+        function renderStudents(filtered){ const grid=document.getElementById('students-grid'); grid.innerHTML=''; if(filtered.length===0){ grid.innerHTML='<div class="col-span-full text-center py-12 bg-white neo-border-lg neo-shadow-black"><p class="font-mega font-bold text-xl text-neoPink">🚨 Ops! Koder tidak ditemukan...</p></div>'; return; } filtered.forEach((s,i)=>{ const bg=["bg-white","bg-neoYellow","bg-neoBlue","bg-neoCream","bg-neoOrange","bg-neoPink"][i%6]; const rotate=i%3===0?'-rotate-1':i%3===1?'rotate-1':'rotate-2'; let tagColor="bg-white"; if(s.role==="Frontend Dev") tagColor="bg-neoBlue"; else if(s.role==="Backend Dev") tagColor="bg-neoYellow"; else if(s.role==="UI/UX Designer") tagColor="bg-neoPink text-white"; else if(s.role==="Bug Hunter") tagColor="bg-neoOrange text-white"; else if(s.role==="Mobile Specialist") tagColor="bg-neoPurple text-white"; grid.innerHTML+=`<div class="${bg} neo-border-lg p-6 neo-shadow-black ${rotate} hover:rotate-0 transition-all flex flex-col h-[420px]"><div><div class="flex justify-between items-start mb-4"><span class="bg-black text-white neo-border-md px-2 py-0.5 text-xs font-mono">${s.nis}</span></div><div class="w-20 h-20 mx-auto bg-white border-4 border-black neo-shadow-black-sm rounded-lg overflow-hidden mb-4"><img src="${s.avatar}" class="w-full h-full object-cover"></div><h3 class="font-mega font-black text-lg text-center truncate">${s.name}</h3><div class="text-center"><span class="${tagColor} neo-border-md px-2.5 py-1 text-xs font-bold uppercase inline-block my-1">${s.role}</span></div><p class="text-xs text-gray-700 italic text-center mt-3">"${s.quote}"</p></div><div class="mt-4 pt-4 border-t-2 border-black flex justify-between text-xs font-mono"><span>Fav Lang:</span><span class="bg-black text-neoYellow px-2 py-0.5 rounded font-bold">${s.favLang}</span></div></div>`; }); }
+        document.getElementById('search-student').addEventListener('input',()=>{ const q=document.getElementById('search-student').value.toLowerCase(); const r=document.getElementById('filter-role').value; renderStudents(students.filter(s=> s.name.toLowerCase().includes(q) && (r===""||s.role===r))); });
+        document.getElementById('filter-role').addEventListener('change',()=>{ const q=document.getElementById('search-student').value.toLowerCase(); const r=document.getElementById('filter-role').value; renderStudents(students.filter(s=> s.name.toLowerCase().includes(q) && (r===""||s.role===r))); });
         renderStudents(students);
-        const schedules={ senin:[{time:"07:00 - 08:30",subject:"Upacara & Pembinaan",room:"Lapangan"},{time:"08:30 - 10:00",subject:"Dasar-Dasar Kejuruan RPL",room:"Lab RPL 1"},{time:"10:15 - 12:00",subject:"Pendidikan Agama",room:"Teori 4"},{time:"12:45 - 14:30",subject:"Matematika Dasar",room:"Teori 4"}], selasa:[{time:"07:00 - 09:30",subject:"Pemrograman Dasar",room:"Lab RPL 1"},{time:"09:45 - 12:00",subject:"Sistem Komputer",room:"Lab RPL 2"},{time:"12:45 - 14:30",subject:"Bahasa Inggris Teknik",room:"Teori 4"}], rabu:[{time:"07:00 - 09:30",subject:"Desain Grafis",room:"Lab RPL 1"},{time:"09:45 - 12:00",subject:"Bahasa Indonesia",room:"Teori 4"},{time:"12:45 - 14:30",subject:"Sejarah",room:"Teori 4"}], kamis:[{time:"07:00 - 09:30",subject:"Dasar Koding (HTML, CSS, JS)",room:"Lab RPL 1"},{time:"09:45 - 12:00",subject:"Fisika & Kimia",room:"Teori 4"},{time:"12:45 - 14:30",subject:"PJOK",room:"Lapangan"}], jumat:[{time:"07:00 - 08:30",subject:"Kewirausahaan",room:"Teori 4"},{time:"08:30 - 10:30",subject:"Proyek Kolaboratif",room:"Lab RPL 1"},{time:"10:30 - 11:30",subject:"Jumat Berkah",room:"Lab"}] };
-        window.switchDay=function(day){ document.querySelectorAll('.schedule-tab-btn').forEach(btn=>{ btn.classList.remove('bg-black','text-white'); btn.classList.add('bg-white','text-black'); }); document.getElementById(`btn-${day}`).classList.remove('bg-white','text-black'); document.getElementById(`btn-${day}`).classList.add('bg-black','text-white'); const container=document.getElementById('schedule-content'); container.innerHTML=''; schedules[day].forEach(s=>{ container.innerHTML+=`<div class="flex flex-col md:flex-row justify-between gap-3 py-4 border-b-2 border-dashed border-black last:border-0"><div class="flex flex-wrap items-center gap-3"><span class="bg-neoPink text-white neo-border-md px-2 py-1 text-[11px] font-mono">${s.time}</span><div><h4 class="font-mega font-bold text-base">${s.subject}</h4><span class="text-xs text-gray-500">Ruangan: ${s.room}</span></div></div><span class="bg-neoGreen text-white neo-border-md px-2 py-0.5 text-[10px] font-bold self-start">AKTIF</span></div>`; }); }; switchDay('senin');
-        const albumData=[{id:1,title:"Belajar Koding Laravel",tag:"belajar",date:"24 Feb 2026",image:"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80",desc:"Belajar arsitektur MVC Laravel."},{id:2,title:"Kolaborasi Desain Figma",tag:"proyek",date:"12 Mar 2026",image:"https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",desc:"Brainstorming skema warna."},{id:3,title:"Lomba Classmeeting Esport",tag:"event",date:"20 Des 2025",image:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80",desc:"Turnamen Mobile Legends."},{id:4,title:"Makan Bareng",tag:"kebersamaan",date:"08 Des 2025",image:"https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=600&q=80",desc:"Syukuran kecil."},{id:5,title:"Debug Maraton C++",tag:"belajar",date:"05 Jan 2026",image:"https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80",desc:"Memecahkan segmentation fault."},{id:6,title:"Turnamen Futsal",tag:"event",date:"15 Nov 2025",image:"https://images.unsplash.com/photo-1528495612344-17247989b99f?auto=format&fit=crop&w=600&q=80",desc:"Juara 2 futsal."}];
-        function renderAlbum(tag='all'){ const grid=document.getElementById('album-grid'); grid.innerHTML=''; const filtered=tag==='all'?albumData:albumData.filter(i=>i.tag===tag); filtered.forEach((item,idx)=>{ const rotate=idx%2===0?'rotate-1':'-rotate-1'; grid.innerHTML+=`<div class="bg-white neo-border-lg p-3 neo-shadow-black ${rotate} hover:rotate-0"><div class="bg-black neo-border-md overflow-hidden aspect-video cursor-pointer" onclick="openAlbumModal(${item.id})"><img src="${item.image}" class="w-full h-full object-cover hover:scale-105 transition"></div><div class="mt-3 flex justify-between"><span class="bg-neoBlue text-black neo-border-md px-2 text-[10px] font-mono">${item.tag}</span><span class="text-[10px] text-gray-500">${item.date}</span></div><h3 class="font-mega font-black text-sm mt-2">${item.title}</h3><p class="text-xs text-gray-600 mt-1 line-clamp-2">${item.desc}</p><button onclick="openAlbumModal(${item.id})" class="mt-3 w-full bg-black text-white py-1.5 text-[11px] font-bold neo-border-md">BACA MEMORI →</button></div>`; }); }
-        window.filterAlbum=function(tag){ document.querySelectorAll('.album-filter-btn').forEach(b=>{ b.classList.remove('bg-black','text-white'); b.classList.add('bg-white','text-black'); }); document.getElementById(`filter-${tag}`).classList.remove('bg-white','text-black'); document.getElementById(`filter-${tag}`).classList.add('bg-black','text-white'); renderAlbum(tag); }; window.openAlbumModal=function(id){ const item=albumData.find(x=>x.id===id); if(item){ document.getElementById('modal-img').src=item.image; document.getElementById('modal-tag').innerText=item.tag; document.getElementById('modal-title').innerText=item.title; document.getElementById('modal-desc').innerText=item.desc; document.getElementById('modal-date').innerText="Tanggal: "+item.date; document.getElementById('album-modal').classList.remove('hidden'); document.getElementById('album-modal').classList.add('flex'); } }; window.closeAlbumModal=function(){ document.getElementById('album-modal').classList.add('hidden'); document.getElementById('album-modal').classList.remove('flex'); }; renderAlbum('all');
-        const commands={ help:`Daftar Perintah: about, walkes, students, random, motto, album, clear`, about:`X RPL fokus pemrograman dari dasar hingga mahir.`, walkes:`Wali Kelas Deka M Wildan, S.Kom.`, students:`Total 35 siswa, 25 Laki, 10 Perempuan.`, motto:`"CODE DAILY, PREVENT ERROR, ENJOY LIFE."`, album:`Total 6 album kegiatan.` };
-        const termInputEl=document.getElementById('terminal-input'), termHistory=document.getElementById('terminal-history'), termScreen=document.getElementById('terminal-screen');
-        termInputEl?.addEventListener('keydown',function(e){ if(e.key==='Enter'){ const val=this.value.trim().toLowerCase(); this.value=''; termHistory.innerHTML+=`<div class="flex gap-2 text-neoGreen"><span>root@x-rpl:~#</span><span class="text-white">${val}</span></div>`; if(val==='clear') termHistory.innerHTML=''; else if(val==='random'){ const rand=students[Math.floor(Math.random()*students.length)]; termHistory.innerHTML+=`<div class="bg-zinc-800 p-2 neo-border-md text-neoBlue"><p class="font-bold">${rand.name} (${rand.nis})</p><p>Role: ${rand.role} | ${rand.favLang}</p><p class="italic">"${rand.quote}"</p></div>`; } else if(commands[val]) termHistory.innerHTML+=`<div class="text-gray-300">${commands[val]}</div>`; else if(val!=='') termHistory.innerHTML+=`<div class="text-neoPink">Command not found: "${val}". Type help</div>`; termScreen.scrollTop=termScreen.scrollHeight; } });
-        const defaultNotes=[{id:1,author:"Asep Koding",color:"bg-[#FFE600]",text:"Semangat belajarnya rek!"},{id:2,author:"Ibu Kantin",color:"bg-[#38BDF8]",text:"Sukses selalu, jajan di kantin ya!"},{id:3,author:"Pak Supriyadi",color:"bg-[#FF007A] text-white",text:"Perbanyak latihan koding mandiri!"}];
-        function loadNotes(){ let notes=JSON.parse(localStorage.getItem('xrpl_notes')); if(!notes){ notes=defaultNotes; localStorage.setItem('xrpl_notes',JSON.stringify(notes)); } const container=document.getElementById('sticky-notes-container'); container.innerHTML=''; notes.forEach((note,idx)=>{ const rot=idx%2===0?'-rotate-2':'rotate-2'; container.innerHTML+=`<div class="${note.color} neo-border-md p-3 neo-shadow-black-sm ${rot} hover:rotate-0 min-h-[120px]"><p class="font-bold text-sm">"${note.text}"</p><div class="text-right mt-3 pt-1 border-t border-black/20 text-xs font-mono">— ${note.author}</div></div>`; }); }
-        document.getElementById('note-form')?.addEventListener('submit',function(e){ e.preventDefault(); const author=document.getElementById('note-author').value, color=document.getElementById('note-color').value, text=document.getElementById('note-text').value; const notes=JSON.parse(localStorage.getItem('xrpl_notes'))||[]; notes.push({id:Date.now(),author,color,text}); localStorage.setItem('xrpl_notes',JSON.stringify(notes)); document.getElementById('note-author').value=''; document.getElementById('note-text').value=''; loadNotes(); });
+        const schedules={ senin:[{time:"07:00 - 08:30",subject:"Upacara & Pembinaan Wali Kelas",room:"Lapangan & Lab"},{time:"08:30 - 10:00",subject:"Dasar-Dasar Kejuruan RPL",room:"Lab RPL 1"},{time:"10:15 - 12:00",subject:"Pendidikan Agama",room:"Teori 4"},{time:"12:45 - 14:30",subject:"Matematika Dasar",room:"Teori 4"}], selasa:[{time:"07:00 - 09:30",subject:"Pemrograman Dasar",room:"Lab RPL 1"},{time:"09:45 - 12:00",subject:"Sistem Komputer & Jaringan",room:"Lab RPL 2"},{time:"12:45 - 14:30",subject:"Bahasa Inggris Teknik",room:"Teori 4"}], rabu:[{time:"07:00 - 09:30",subject:"Desain Grafis",room:"Lab RPL 1"},{time:"09:45 - 12:00",subject:"Bahasa Indonesia",room:"Teori 4"},{time:"12:45 - 14:30",subject:"Sejarah Indonesia",room:"Teori 4"}], kamis:[{time:"07:00 - 09:30",subject:"Dasar Koding (HTML, CSS, JS)",room:"Lab RPL 1"},{time:"09:45 - 12:00",subject:"Fisika & Kimia",room:"Teori 4"},{time:"12:45 - 14:30",subject:"Pendidikan Jasmani",room:"Lapangan"}], jumat:[{time:"07:00 - 08:30",subject:"Kewirausahaan",room:"Teori 4"},{time:"08:30 - 10:30",subject:"Proyek Kolaboratif RPL",room:"Lab RPL 1"},{time:"10:30 - 11:30",subject:"Jumat Berkah",room:"Lab"}] };
+        window.switchDay=function(day){ document.querySelectorAll('.schedule-tab-btn').forEach(btn=>{ btn.classList.remove('bg-black','text-white'); btn.classList.add('bg-white','text-black'); }); document.getElementById(`btn-${day}`).classList.remove('bg-white','text-black'); document.getElementById(`btn-${day}`).classList.add('bg-black','text-white'); const container=document.getElementById('schedule-content'); container.innerHTML=''; schedules[day].forEach(s=>{ container.innerHTML+=`<div class="flex justify-between items-center gap-4 py-4 border-b-2 border-dashed border-black last:border-0"><div class="flex items-center gap-4"><span class="bg-neoPink text-white neo-border-md px-3 py-1 text-xs font-mono">${s.time}</span><div><h4 class="font-mega font-bold text-lg">${s.subject}</h4><span class="text-xs text-gray-500">Ruangan: ${s.room}</span></div></div><span class="bg-neoGreen text-white neo-border-md px-2 py-0.5 text-xs font-bold">AKTIF</span></div>`; }); }; switchDay('senin');
+        const albumData=[{id:1,title:"Belajar Koding Laravel",tag:"belajar",date:"24 Februari 2026",image:"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80",desc:"Anak-anak X RPL membedah arsitektur MVC Laravel."},{id:2,title:"Kolaborasi Desain Figma",tag:"proyek",date:"12 Maret 2026",image:"https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",desc:"Tim UI/UX brainstorming skema warna Neubrutalism."},{id:3,title:"Lomba Classmeeting Esport",tag:"event",date:"20 Desember 2025",image:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80",desc:"Tim esport kelas X RPL bertanding."},{id:4,title:"Makan Bareng Sehabis Ujian",tag:"kebersamaan",date:"08 Desember 2025",image:"https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=600&q=80",desc:"Syukuran kecil-kecilan sehabis UAS."},{id:5,title:"Debug Maraton C++",tag:"belajar",date:"05 Januari 2026",image:"https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80",desc:"Bug Hunter memecahkan segmentation fault."},{id:6,title:"Turnamen Futsal SMK",tag:"event",date:"15 November 2025",image:"https://images.unsplash.com/photo-1528495612344-17247989b99f?auto=format&fit=crop&w=600&q=80",desc:"Skuad futsal X RPL meraih juara 2."}];
+        function renderAlbum(tag='all'){ const grid=document.getElementById('album-grid'); grid.innerHTML=''; const filtered=tag==='all'?albumData:albumData.filter(i=>i.tag===tag); filtered.forEach((item,idx)=>{ const rotate=idx%2===0?'rotate-1':'-rotate-1'; grid.innerHTML+=`<div class="bg-white neo-border-lg p-4 neo-shadow-black ${rotate} hover:rotate-0 transition-all"><div class="bg-black neo-border-md overflow-hidden aspect-video cursor-pointer group" onclick="openAlbumModal(${item.id})"><img src="${item.image}" class="w-full h-full object-cover group-hover:scale-105 transition"></div><div class="mt-4 flex justify-between"><span class="bg-neoBlue text-black neo-border-md px-2 py-0.5 text-xs font-mono">${item.tag}</span><span class="text-xs text-gray-500">${item.date}</span></div><h3 class="font-mega font-black text-lg mt-3">${item.title}</h3><p class="text-xs text-gray-600 mt-2 line-clamp-2">${item.desc}</p><button onclick="openAlbumModal(${item.id})" class="mt-4 w-full bg-black text-white py-2 font-bold text-xs neo-border-md hover:bg-neoPink">BACA DETAIL MEMORI →</button></div>`; }); }
+        window.filterAlbum=function(tag){ document.querySelectorAll('.album-filter-btn').forEach(btn=>{ btn.classList.remove('bg-black','text-white'); btn.classList.add('bg-white','text-black'); }); document.getElementById(`filter-${tag}`).classList.remove('bg-white','text-black'); document.getElementById(`filter-${tag}`).classList.add('bg-black','text-white'); renderAlbum(tag); }; window.openAlbumModal=function(id){ const item=albumData.find(x=>x.id===id); if(item){ document.getElementById('modal-img').src=item.image; document.getElementById('modal-tag').innerText=item.tag; document.getElementById('modal-title').innerText=item.title; document.getElementById('modal-desc').innerText=item.desc; document.getElementById('modal-date').innerText="Tanggal: "+item.date; const modal=document.getElementById('album-modal'); modal.classList.remove('hidden'); modal.classList.add('flex'); } }; window.closeAlbumModal=function(){ document.getElementById('album-modal').classList.add('hidden'); document.getElementById('album-modal').classList.remove('flex'); }; renderAlbum('all');
+        const commands={help:"about, walkes, students, random, motto, album, clear",about:"X RPL adalah kependekan dari Sepuluh Rekayasa Perangkat Lunak.",walkes:"Wali Kelas Deka M Wildan, S.Kom.",students:"Total 35 siswa, 25 Laki, 10 Perempuan.",motto:'"CODE DAILY, PREVENT ERROR, ENJOY LIFE."',album:"Total ada 6 Album Kegiatan terdaftar."};
+        const termInputElem=document.getElementById('terminal-input'), termHistoryDiv=document.getElementById('terminal-history'), termScreenDiv=document.getElementById('terminal-screen');
+        termInputElem.addEventListener('keydown',function(e){ if(e.key==='Enter'){ const val=this.value.trim().toLowerCase(); this.value=''; termHistoryDiv.innerHTML+=`<div class="flex gap-2 text-neoGreen"><span>root@x-rpl:~#</span><span class="text-white">${val}</span></div>`; if(val==='clear') termHistoryDiv.innerHTML=''; else if(val==='random'){ const rand=students[Math.floor(Math.random()*students.length)]; termHistoryDiv.innerHTML+=`<div class="bg-zinc-800 p-3 neo-border-md text-neoBlue"><p class="font-bold">${rand.name} (${rand.nis})</p><p>Role: ${rand.role} | ${rand.favLang}</p><p class="italic">"${rand.quote}"</p></div>`; } else if(commands[val]) termHistoryDiv.innerHTML+=`<div class="text-gray-300">${commands[val]}</div>`; else if(val!=='') termHistoryDiv.innerHTML+=`<div class="text-neoPink">Command not found: "${val}". Type help</div>`; termScreenDiv.scrollTop=termScreenDiv.scrollHeight; } });
+        const defaultNotes=[{id:1,author:"Asep Koding",color:"bg-[#FFE600]",text:"Semangat belajarnya rek, rpl harus solid!"},{id:2,author:"Ibu Kantin",color:"bg-[#38BDF8]",text:"Sukses selalu, jangan lupa jajan di kantin!"},{id:3,author:"Pak Supriyadi",color:"bg-[#FF007A] text-white",text:"Kurangi waktu tidur di kelas, perbanyak latihan koding!"}];
+        function loadNotes(){ let notes=JSON.parse(localStorage.getItem('xrpl_notes')); if(!notes){ notes=defaultNotes; localStorage.setItem('xrpl_notes',JSON.stringify(notes)); } const container=document.getElementById('sticky-notes-container'); container.innerHTML=''; notes.forEach((note,idx)=>{ const rot=idx%2===0?'-rotate-2':'rotate-2'; container.innerHTML+=`<div class="${note.color} neo-border-md p-4 neo-shadow-black-sm ${rot} hover:rotate-0 min-h-[140px]"><p class="font-bold text-sm">"${note.text}"</p><div class="text-right mt-4 pt-2 border-t border-black/20 text-xs font-mono">— ${note.author}</div></div>`; }); }
+        document.getElementById('note-form').addEventListener('submit',function(e){ e.preventDefault(); const author=document.getElementById('note-author').value, color=document.getElementById('note-color').value, text=document.getElementById('note-text').value; const notes=JSON.parse(localStorage.getItem('xrpl_notes'))||[]; notes.push({id:Date.now(),author,color,text}); localStorage.setItem('xrpl_notes',JSON.stringify(notes)); document.getElementById('note-author').value=''; document.getElementById('note-text').value=''; loadNotes(); });
         window.clearNotes=function(){ localStorage.setItem('xrpl_notes',JSON.stringify([])); loadNotes(); }; loadNotes();
     </script>
 </body>
